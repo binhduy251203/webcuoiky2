@@ -1,0 +1,937 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Colo Shop</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Colo Shop Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @*<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">*@
+    <link href="~/layout3/styles/bootstrap4/bootstrap.min.css" rel="stylesheet" />
+    @*<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">*@
+    <link href="~/layout3/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    @*<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">*@
+    <link href="~/layout3/plugins/OwlCarousel2-2.2.1/owl.carousel.css" rel="stylesheet" />
+    @*<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">*@
+    <link href="~/layout3/plugins/OwlCarousel2-2.2.1/owl.theme.default.css" rel="stylesheet" />
+    @*<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">*@
+    <link href="~/layout3/plugins/OwlCarousel2-2.2.1/animate.css" rel="stylesheet" />
+    @*<link rel="stylesheet" type="text/css" href="styles/main_styles.css">*@
+    <link href="~/layout3/styles/main_styles.css" rel="stylesheet" />
+    @*<link rel="stylesheet" type="text/css" href="styles/responsive.css">*@
+    <link href="~/layout3/styles/responsive.css" rel="stylesheet" />
+
+    <!-- Các liên kết khác -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+
+    <!-- Css của layout khác -->
+    <link href="~/layout2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/layout2/css/tiny-slider.css" rel="stylesheet" />
+    <link href="~/layout2/css/style.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .product_slider_item .product-item {
+            height: 400px;
+        }
+
+        .product_slider_container {
+            width: 100%;
+            height: 400px;
+            margin-top: 73px;
+        }
+        .cart {
+    position: relative; 
+}
+
+.cart a {
+    display: inline-block;
+    color: #333; /* Màu chữ mặc định */
+    text-decoration: none;
+    position: relative;
+}
+
+.cart a i {
+    font-size: 24px; /* Kích thước icon giỏ hàng */
+}
+
+.cart #cartCount {
+    position: absolute;
+    top: -10px; /* Đẩy lên trên icon */
+    right: -10px; /* Đẩy sang phải của icon */
+    background-color: orange; /* Màu nền cam */
+    color: white; /* Màu chữ trắng */
+    font-size: 12px; /* Kích thước chữ */
+    font-weight: bold; /* Chữ đậm */
+    width: 18px; /* Chiều rộng badge */
+    height: 18px; /* Chiều cao badge */
+    line-height: 18px; /* Căn giữa chữ */
+    border-radius: 50%; /* Hình tròn */
+    text-align: center; /* Căn giữa số */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="super_container">
+
+        <!-- Header -->
+
+        <header class="header trans_300">
+
+            <!-- Top Navigation -->
+
+            <div class="top_nav">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="top_nav_left">free shipping on all u.s orders over $50</div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <div class="top_nav_right">
+                                <ul class="top_nav_menu">
+
+                                     Currency / Language / My Account 
+
+                                    <li class="currency">
+                                        <a href="#">
+                                            usd
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="currency_selection">
+                                            <li><a href="#">cad</a></li>
+                                            <li><a href="#">aud</a></li>
+                                            <li><a href="#">eur</a></li>
+                                            <li><a href="#">gbp</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="language">
+                                        <a href="#">
+                                            English
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="language_selection">
+                                            <li><a href="#">French</a></li>
+                                            <li><a href="#">Italian</a></li>
+                                            <li><a href="#">German</a></li>
+                                            <li><a href="#">Spanish</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="account">
+                                        <a href="#">
+                                            My Account
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="account_selection">
+                                            <li><a href="/Login/Lclogin"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+                                            <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Navigation -->
+
+            <div class="main_nav_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-right">
+                            <div class="logo_container">
+                                <a href="#">FURI<span></span></a>
+                            </div>
+                            <nav class="navbar">
+                                <ul class="navbar_menu">
+                                    <li><a href="/Test/Index">Trang Chủ</a></li>
+                                    <li><a href="#">Cửa Hàng</a></li>
+                                    <li><a href="#">Khuyến Mãi</a></li>
+                                    <li><a href="#">Bài Viết</a></li>
+                                    <li><a href="contact.html">Liên Hệ</a></li>
+                                </ul>
+                                <ul class="navbar_user">
+                                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                    <li><a href="/Login/Lclogin"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                    <li class="checkout">
+                                        @*<a href="#">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span id="checkout_items" class="checkout_items">2</span>
+        </a>*@
+                                       
+                                        @{
+                                            var cart = Session["Cart"] as List<webcuoiky2.Models.SanPham>;
+                                            var cartCount = cart?.Count ?? 0;
+                                        }
+                                        <div class="cart">
+                                            <a href="@Url.Action("Index", "Cart")">
+                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                <span id="cartCount">@cartCount</span>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="hamburger_container">
+                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <div class="fs_menu_overlay"></div>
+        <div class="hamburger_menu">
+            <div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+            <div class="hamburger_menu_content text-right">
+                <ul class="menu_top_nav">
+                    <li class="menu_item has-children">
+                        <a href="#">
+                            usd
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="menu_selection">
+                            <li><a href="#">cad</a></li>
+                            <li><a href="#">aud</a></li>
+                            <li><a href="#">eur</a></li>
+                            <li><a href="#">gbp</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu_item has-children">
+                        <a href="#">
+                            English
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="menu_selection">
+                            <li><a href="#">French</a></li>
+                            <li><a href="#">Italian</a></li>
+                            <li><a href="#">German</a></li>
+                            <li><a href="#">Spanish</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu_item has-children">
+                        <a href="#">
+                            My Account
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="menu_selection">
+                            <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+                            <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu_item"><a href="#">home</a></li>
+                    <li class="menu_item"><a href="#">shop</a></li>
+                    <li class="menu_item"><a href="#">promotion</a></li>
+                    <li class="menu_item"><a href="#">pages</a></li>
+                    <li class="menu_item"><a href="#">blog</a></li>
+                    <li class="menu_item"><a href="#">contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slider -->
+        @*url(~/Images/baner1.png)*@
+        <div class="main_slider" style=" background-image: url('../../images/baner1.png');">
+            <div class="container fill_height">
+                <div class="row align-items-center fill_height">
+                    <div class="col">
+                        <div class="main_slider_content">
+                            <h6>Nhiều Ưu Đãi Hấp Dẫn</h6>
+                            <h1>Giảm giá lên đến 30% cho sản phẩm mới</h1>
+                            <div class="red_button shop_now_button"><a href="#">Mua Ngay</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Banner -->
+
+        <div class="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="banner_item align-items-center" style="background-image: url('../../images/banerbep.jpg');">
+                            <div class="banner_category">
+                                <a href="categories.html">Phòng Bếp</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="banner_item align-items-center" style="background-image: url('../../images/banerngu.jpg');">
+                            <div class="banner_category">
+                                <a href="categories.html">Phòng Ngủ</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="banner_item align-items-center" style="background-image: url('../../images/banerlm.jpg');">
+                            <div class="banner_category">
+                                <a href="categories.html">Phòng Làm Việc</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Arrivals -->
+
+        <div class="new_arrivals">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="section_title new_arrivals_title">
+                            <h2>Sản Phẩm Mới</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col text-center">
+                        <div class="new_arrivals_sorting">
+                            <ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
+                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">Tất Cả Sản Phẩm</li>
+                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".pkhach">Phòng Khách</li>
+                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".pngu">Phòng Ngủ</li>
+                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".pbep">Phòng Bếp</li>
+                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".ptam">Phòng Tắm</li>
+                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".plm">Văn Phòng</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--<div class="col">
+                    <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>-->
+                    <!-- Product 1 -->
+                    <!--<div class="product-item men">
+                        <div class="product discount product_filter">
+                            <div class="product_image">
+                                <img src="images/product_1.png" alt="">
+                            </div>
+                            <div class="favorite favorite_left"></div>
+                            <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital Camera (Silver)</a></h6>
+                                <div class="product_price">$520.00<span>$590.00</span></div>
+                            </div>
+                        </div>
+                        <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>-->
+                    <!-- Product 2 -->
+                    <!--<div class="product-item women">
+                        <div class="product product_filter">
+                            <div class="product_image">
+                                <img src="images/product_2.png" alt="">
+                            </div>
+                            <div class="favorite"></div>
+                            <div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="single.html">Samsung CF591 Series Curved 27-Inch FHD Monitor</a></h6>
+                                <div class="product_price">$610.00</div>
+                            </div>
+                        </div>
+                        <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>-->
+                    <!-- Product 3 -->
+                    <!--<div class="product-item women">
+                        <div class="product product_filter">
+                            <div class="product_image">
+                                <img src="images/product_3.png" alt="">
+                            </div>
+                            <div class="favorite"></div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="single.html">Blue Yeti USB Microphone Blackout Edition</a></h6>
+                                <div class="product_price">$120.00</div>
+                            </div>
+                        </div>
+                        <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>-->
+                    <!-- Product 4 -->
+                    <!--<div class="product-item accessories">
+                        <div class="product product_filter">
+                            <div class="product_image">
+                                <img src="images/product_4.png" alt="">
+                            </div>
+                            <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
+                            <div class="favorite favorite_left"></div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="single.html">DYMO LabelWriter 450 Turbo Thermal Label Printer</a></h6>
+                                <div class="product_price">$410.00</div>
+                            </div>
+                        </div>
+                        <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>-->
+                    <!-- Product 5 -->
+                    <!--<div class="product-item women men">
+                        <div class="product product_filter">
+                            <div class="product_image">
+                                <img src="images/product_5.png" alt="">
+                            </div>
+                            <div class="favorite"></div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="single.html">Pryma Headphones, Rose Gold & Grey</a></h6>
+                                <div class="product_price">$180.00</div>
+                            </div>
+                        </div>
+                        <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>-->
+                    <!-- Product 6 -->
+                    <!--<div class="product-item accessories">
+                        <div class="product discount product_filter">
+                            <div class="product_image">
+                                <img src="images/product_6.png" alt="">
+                            </div>
+                            <div class="favorite favorite_left"></div>
+                            <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="#single.html">Fujifilm X100T 16 MP Digital Camera (Silver)</a></h6>
+                                <div class="product_price">$520.00<span>$590.00</span></div>
+                            </div>
+                        </div>
+                        <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>-->
+                    <!-- Product 7 -->
+                    <!--<div class="product-item women">
+                        <div class="product product_filter">
+                            <div class="product_image">
+                                <img src="images/product_7.png" alt="">
+                            </div>
+                            <div class="favorite"></div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="single.html">Samsung CF591 Series Curved 27-Inch FHD Monitor</a></h6>
+                                <div class="product_price">$610.00</div>
+                            </div>
+                        </div>
+                        <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>-->
+                    <!-- Product 8 -->
+                    <!--<div class="product-item accessories">
+                        <div class="product product_filter">
+                            <div class="product_image">
+                                <img src="images/product_8.png" alt="">
+                            </div>
+                            <div class="favorite"></div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="single.html">Blue Yeti USB Microphone Blackout Edition</a></h6>
+                                <div class="product_price">$120.00</div>
+                            </div>
+                        </div>
+                        <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>-->
+                    <!-- Product 9 -->
+                    <!--<div class="product-item men">
+                        <div class="product product_filter">
+                            <div class="product_image">
+                                <img src="images/product_9.png" alt="">
+                            </div>
+                            <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
+                            <div class="favorite favorite_left"></div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="single.html">DYMO LabelWriter 450 Turbo Thermal Label Printer</a></h6>
+                                <div class="product_price">$410.00</div>
+                            </div>
+                        </div>
+                        <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                    </div>-->
+                    <!-- Product 10 -->
+                    <!--<div class="product-item men">
+                                <div class="product product_filter">
+                                    <div class="product_image">
+                                        <img src="images/product_10.png" alt="">
+                                    </div>
+                                    <div class="favorite"></div>
+                                    <div class="product_info">
+                                        <h6 class="product_name"><a href="single.html">Pryma Headphones, Rose Gold & Grey</a></h6>
+                                        <div class="product_price">$180.00</div>
+                                    </div>
+                                </div>
+                                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                            </div>
+                        </div>
+                    </div>-->
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+
+        <!-- Deal of the week -->
+        @*<div class="deal_ofthe_week">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="deal_ofthe_week_img">
+                                <img src="~/Images/banerquangcao.jpg" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 text-right deal_ofthe_week_col">
+                            <div class="deal_ofthe_week_content d-flex flex-column align-items-center float-right">
+                                <div class="section_title">
+                                    <h2>Giảm Giá Trong Tuần</h2>
+                                </div>
+                                <ul class="timer">
+                                    <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                                        <div id="day" class="timer_num">03</div>
+                                        <div class="timer_unit">Ngày</div>
+                                    </li>
+                                    <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                                        <div id="hour" class="timer_num">15</div>
+                                        <div class="timer_unit">Giờ</div>
+                                    </li>
+                                    <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                                        <div id="minute" class="timer_num">45</div>
+                                        <div class="timer_unit">Phút</div>
+                                    </li>
+                                    <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                                        <div id="second" class="timer_num">23</div>
+                                        <div class="timer_unit">Giây</div>
+                                    </li>
+                                </ul>
+                                <div class="red_button deal_ofthe_week_button"><a href="#">Mua Ngay</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        <!--layout khac -->
+        <div class="we-help-section">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-lg-7 mb-5 mb-lg-0">
+                        <div class="imgs-grid">
+                            <div class="grid grid-1">
+                                <img src="~/Images/quangcao1.jpg" />
+                            </div>
+                            <div class="grid grid-2">
+                                <img src="~/Images/quangcao2.jpg" />
+                            </div>
+                            <div class="grid grid-3">
+                                <img src="~/Images/quangcao3.jpg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 ps-lg-5">
+                        <h2 class="section-title mb-4">Chúng Tôi Giúp Bạn Thiết Kế Nội Thất Hiện Đại</h2>
+                        <p>Với sứ mệnh mang lại không gian sống lý tưởng, chúng tôi tự hào cung cấp dịch vụ thiết kế nội thất hiện đại, sáng tạo và phù hợp với mọi nhu cầu của bạn</p>
+
+                        <ul class="list-unstyled custom-list my-4">
+                            <li>Thiết Kế Hiện Đại, Tinh Tế</li>
+                            <li>Cá Nhân Hóa Không Gian</li>
+                            <li>Chất Lượng Cao Cấp, Đảm Bảo Lâu Dài</li>
+                            <li>Tiết Kiệm Thời Gian, Chi Phí Hợp Lý</li>
+                        </ul>
+                        <p><a herf="#" class="btn">Khám Phá</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Best Sellers -->
+
+        <div class="best_sellers">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="section_title new_arrivals_title">
+                            <h2>Bán Chạy Nhất</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="product_slider_container">
+                            <div class="owl-carousel owl-theme product_slider">
+
+                                <!-- Slide 1 -->
+
+                                <div class="owl-item product_slider_item">
+                                    <div class="product-item">
+                                        <div class="product discount">
+                                            <div class="product_image">
+                                                @*<img src="images/product_1.png" alt="">*@
+                                                <img src="~/Images/bep1.png" />
+                                            </div>
+                                            <div class="favorite favorite_left"></div>
+                                            <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+                                            <div class="product_info">
+                                                <h6 class="product_name"><a href="single.html">Bàn Ăn Thông Minh Gấp Gọn Thago BA002</a></h6>
+                                                <div class="product_price">4,490,000 VND<span></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 2 -->
+
+                                <div class="owl-item product_slider_item">
+                                    <div class="product-item women">
+                                        <div class="product">
+                                            <div class="product_image">
+                                                @*<img src="images/product_2.png" alt="">*@
+                                                <img src="~/Images/ngu2.png" />
+                                            </div>
+                                            <div class="favorite"></div>
+                                            <div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
+                                            <div class="product_info">
+                                                <h6 class="product_name"><a href="single.html">Giường ngủ gỗ tự nhiên kết hợp cánh mây và đệm đầu giường</a></h6>
+                                                <div class="product_price">5,190,000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 3 -->
+
+                                <div class="owl-item product_slider_item">
+                                    <div class="product-item women">
+                                        <div class="product">
+                                            <div class="product_image">
+                                                @*<img src="images/product_3.png" alt="">*@
+                                                <img src="~/Images/tam2.png" />
+                                            </div>
+                                            <div class="favorite"></div>
+                                            <div class="product_info">
+                                                <h6 class="product_name"><a href="single.html">Bộ Sen Cây Thông Minh Sang Trọng</a></h6>
+                                                <div class="product_price">5,600,000 VND</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 4 -->
+
+                                <div class="owl-item product_slider_item">
+                                    <div class="product-item accessories">
+                                        <div class="product">
+                                            <div class="product_image">
+                                                @*<img src="images/product_4.png" alt="">*@
+                                                <img src="~/Images/tam1.png" />
+                                            </div>
+                                            <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
+                                            <div class="favorite favorite_left"></div>
+                                            <div class="product_info">
+                                                <h6 class="product_name"><a href="single.html">Bồn Cầu Thông Minh TC018</a></h6>
+                                                <div class="product_price">21,600,000 VND</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 5 -->
+
+                                <div class="owl-item product_slider_item">
+                                    <div class="product-item women men">
+                                        <div class="product">
+                                            <div class="product_image">
+                                                @*<img src="images/product_5.png" alt="">*@
+                                                <img src="~/Images/khac1.png" />
+                                            </div>
+                                            <div class="favorite"></div>
+                                            <div class="product_info">
+                                                <h6 class="product_name"><a href="single.html">Kệ TV thiết kế treo tường hiện đại</a></h6>
+                                                <div class="product_price">2,290,000 VND</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 6 -->
+
+                                <div class="owl-item product_slider_item">
+                                    <div class="product-item accessories">
+                                        <div class="product discount">
+                                            <div class="product_image">
+                                                <img src="~/Images/vp1.png" />
+                                            </div>
+                                            <div class="favorite favorite_left"></div>
+                                            <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+                                            <div class="product_info">
+                                                <h6 class="product_name"><a href="single.html">Bàn Làm Việc Gấp Gọn Đa Năng Gỗ Tự Nhiên</a></h6>
+                                                <div class="product_price">1,550,000 VND<span></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 7 -->
+
+                                <div class="owl-item product_slider_item">
+                                    <div class="product-item women">
+                                        <div class="product">
+                                            <div class="product_image">
+
+                                            </div>
+                                            <div class="favorite"></div><img src="~/Images/vp3.png" />
+                                            <div class="product_info">
+                                                <h6 class="product_name"><a href="single.html">Bàn văn phòng tích hợp ngăn kéo đựng đồ và vách ngăn tiện dụng</a></h6>
+                                                <div class="product_price">1,350,000 VND</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 8 -->
+
+                                <div class="owl-item product_slider_item">
+                                    <div class="product-item accessories">
+                                        <div class="product">
+                                            <div class="product_image">
+                                                <img src="~/Images/bep2.png" />
+                                            </div>
+                                            <div class="favorite"></div>
+                                            <div class="product_info">
+                                                <h6 class="product_name"><a href="single.html">Bàn Ăn Thông Minh Gấp Gọn Cao Cấp</a></h6>
+                                                <div class="product_price">2,490,000 VND</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 9 -->
+
+                                <div class="owl-item product_slider_item">
+                                    <div class="product-item men">
+                                        <div class="product">
+                                            <div class="product_image">
+                                                <img src="~/Images/khach3.png" />
+                                            </div>
+                                            <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
+                                            <div class="favorite favorite_left"></div>
+                                            <div class="product_info">
+                                                <h6 class="product_name"><a href="single.html">Vách ngăn kết hợp hộc để đồ họa tiết hoa sen</a></h6>
+                                                <div class="product_price">1,990,000 VND</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 10 -->
+
+                                <div class="owl-item product_slider_item">
+                                    <div class="product-item men">
+                                        <div class="product">
+                                            <div class="product_image">
+                                                <img src="~/Images/vp5.png" />
+                                            </div>
+                                            <div class="favorite"></div>
+                                            <div class="product_info">
+                                                <h6 class="product_name"><a href="single.html">Bàn học sinh khung kim loại kết hợp giá sách</a></h6>
+                                                <div class="product_price">2,090,000 VND</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slider Navigation -->
+
+                            <div class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">
+                                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                            </div>
+                            <div class="product_slider_nav_right product_slider_nav d-flex align-items-center justify-content-center flex-column">
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefit -->
+
+        <div class="benefit">
+            <div class="container">
+                <div class="row benefit_row">
+                    <div class="col-lg-3 benefit_col">
+                        <div class="benefit_item d-flex flex-row align-items-center">
+                            <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+                            <div class="benefit_content">
+                                <h6>free shipping</h6>
+                                <p>Suffered Alteration in Some Form</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 benefit_col">
+                        <div class="benefit_item d-flex flex-row align-items-center">
+                            <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+                            <div class="benefit_content">
+                                <h6>Thanh Toán Khi Nhận Hàng</h6>
+                                <p>The Internet Tend To Repeat</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 benefit_col">
+                        <div class="benefit_item d-flex flex-row align-items-center">
+                            <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
+                            <div class="benefit_content">
+                                <h6>45 ngày hoàn trả</h6>
+                                <p>Making it Look Like Readable</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 benefit_col">
+                        <div class="benefit_item d-flex flex-row align-items-center">
+                            <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+                            <div class="benefit_content">
+                                <h6>Thời Gian Mở Cửa</h6>
+                                <p>8AM - 09PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blogs -->
+
+        <div class="blogs">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="section_title">
+                            <h2>Bài Viết</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row blogs_container">
+                    <div class="col-lg-4 blog_item_col">
+                        <div class="blog_item">
+                            <div class="blog_background" style=" background-image: url('../../images/tintuc1.png'); "></div>
+                            <div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+                                <h4 class="blog_title">Tạo Lập Phòng Ăn Đơn Giản</h4>
+                                <span class="blog_meta">My | dec 01, 2024</span>
+                                <a class="blog_more" href="#">Đọc Thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 blog_item_col">
+                        <div class="blog_item">
+                            <div class="blog_background" style=" background-image: url('../../images/tintuc2.png');"></div>
+                            <div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+                                <h4 class="blog_title">Ý Tưởng Trang Trí Phòng Khách Nổi Bật</h4>
+                                <span class="blog_meta">Bình Đẹp Zai | dec 01, 2024</span>
+                                <a class="blog_more" href="#">Đọc Thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 blog_item_col">
+                        <div class="blog_item">
+                            <div class="blog_background" style=" background-image: url('../../images/tintuc3.png');"></div>
+                            <div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+                                <h4 class="blog_title">3 Điều Cần Biết Về Sofa Tự Nhiên</h4>
+                                <span class="blog_meta">Nguyễn Bình | dec 01, 2024</span>
+                                <a class="blog_more" href="#">Đọc Thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter -->
+
+        <div class="newsletter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+                            <h4>Bản Tin</h4>
+                            <p>Đăng ký nhận bản tin của chúng tôi và được giảm giá 20% cho lần mua đầu tiên của bạn</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <form action="post">
+                            <div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
+                                <input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
+                                <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">Đăng Ký</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
+                            <ul class="footer_nav">
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="contact.html">Contact us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer_nav_container">
+                            <div class="cr">Được Thiết Kế Bởi Nguyễn Duy Bình <i class="fa fa-heart-o" aria-hidden="true"></i>  <a href="#"></a> &amp;  <a href="https://themewagon.com"></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script src="~/layout3/js/jquery-3.2.1.min.js"></script>
+
+    <script src="~/layout3/styles/bootstrap4/popper.js"></script>
+
+    <script src="~/layout3/styles/bootstrap4/bootstrap.min.js"></script>
+
+    <script src="~/layout3/plugins/Isotope/isotope.pkgd.min.js"></script>
+
+    <script src="~/layout3/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+
+    <script src="~/layout3/plugins/easing/easing.js"></script>
+
+    <script src="~/layout3/js/custom.js"></script>
+    <!--scripts của layout khác-->
+    <script src="~/layout2/js/bootstrap.bundle.min.js"></script>
+    <script src="~/layout2/js/tiny-slider.js"></script>
+    <script src="~/layout2/js/custom.js"></script>
+</body>
+
+</html>
+<!--của giỏ hàng-->
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        
+        $('.add-to-cart').click(function () {
+            var currentCount = parseInt($('#cart-count').text());
+            $('#cart-count').text(currentCount + 1);
+            alert('Product added to cart');
+        });
+
+        
+        $('.remove-from-cart').click(function () {
+            var currentCount = parseInt($('#cart-count').text());
+            if (currentCount > 0) {
+                $('#cart-count').text(currentCount - 1);
+            }
+        });
+    });
+</script>*@

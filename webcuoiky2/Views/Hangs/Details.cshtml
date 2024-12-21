@@ -1,0 +1,103 @@
+﻿@model webcuoiky2.Models.Hang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<style>
+    h2 {
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .container {
+        background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+        border: 1px solid #dee2e6;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    dl dt {
+        font-size: 16px;
+        font-weight: bold;
+        color: #2c7a7b;
+    }
+
+    dl dd {
+        font-size: 16px;
+        color: #495057;
+        background: #f1f1f1;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #004085;
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background-color: #545b62;
+        color: white;
+    }
+</style>
+@*<h2>Chi Tiết Thông Tin </h2>
+
+    <div>
+        <h4>Hãng Sản Xuất</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NhaCungCap.TenNhaCungCap)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NhaCungCap.TenNhaCungCap)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TenHang)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenHang)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.MaHang }) |
+        @Html.ActionLink("Quay Lại Danh Sách", "Index")
+    </p>*@
+<h2 class="text-center text-primary mt-4">Chi Tiết Thông Tin</h2>
+
+<div class="container mt-4 p-4 border rounded shadow-sm bg-light">
+    <h4 class="text-secondary">Hãng Sản Xuất</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4 text-success">
+            @Html.DisplayNameFor(model => model.NhaCungCap.TenNhaCungCap)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.NhaCungCap.TenNhaCungCap)
+        </dd>
+
+        <dt class="col-sm-4 text-success">
+            @Html.DisplayNameFor(model => model.TenHang)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.TenHang)
+        </dd>
+    </dl>
+</div>
+
+<div class="mt-4 text-center">
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaHang }, new { @class = "btn btn-primary me-2" })
+    @Html.ActionLink("Quay Lại Danh Sách", "Index", null, new { @class = "btn btn-secondary" })
+</div>

@@ -1,0 +1,50 @@
+﻿@model List<webcuoiky2.Models.SanPham>
+@{
+    Layout = "~/Views/Shared/_LayoutCheckout.cshtml";
+}
+
+<div class="row mb-5">
+    <div class="col-md-12">
+        <h2 class="h3 mb-3 text-black">Your Order</h2>
+        <div class="p-3 p-lg-5 border bg-white">
+            <table class="table site-block-order-table mb-5">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Count > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.TenSanPham <strong class="mx-2">x</strong> 1</td>
+                                <td>@String.Format("{0:0,0} VND", item.Gia)</td>
+                            </tr>
+                        }
+                        @*<tr>
+                            <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
+                            <td class="text-black">@String.Format("{0:0,0} VND", Model.Sum(x => x.Gia))</td>
+                        </tr>*@
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Tổng Tiền</strong></td>
+                            <td class="text-black font-weight-bold"><strong>@String.Format("{0:0,0} VND", Model.Sum(x => x.Gia))</strong></td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="2">No items in your cart.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="form-group">
+                <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='@Url.Action("Thankyou", "Cart")'">Đặt Hàng</button>               
+            </div>
+        </div>
+    </div>
+</div>

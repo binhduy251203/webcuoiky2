@@ -1,0 +1,154 @@
+﻿@model webcuoiky2.Models.ChiTietDatHang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<style>
+    body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #f9f9f9, #ececec);
+    margin: 0;
+    padding: 0;
+}
+
+/* Card Styles */
+.card {
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading Styles */
+h2.text-primary {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+h4.text-secondary {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* List Styles */
+dl.row dt {
+    background-color: #f0f8ff;
+    padding: 8px;
+    border-radius: 5px;
+    color: #333;
+}
+
+dl.row dd {
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 0;
+    color: #555;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+
+
+</style>
+@*<h2>Details</h2>
+
+    <div>
+        <h4>ChiTietDatHang</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DonDatHang.TenNguoiNhan)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DonDatHang.TenNguoiNhan)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SanPham.TenSanPham)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SanPham.TenSanPham)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoLuong)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DonGia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DonGia)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+<h2 class="text-primary text-center">Chi Tiết Thông Tin</h2>
+
+<div class="card shadow-lg p-4 mb-4 bg-white rounded">
+    <h4 class="text-secondary">Chi Tiết Đặt Hàng</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3 font-weight-bold text-dark">
+            @Html.DisplayNameFor(model => model.DonDatHang.TenNguoiNhan)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.DonDatHang.TenNguoiNhan)
+        </dd>
+
+        <dt class="col-sm-3 font-weight-bold text-dark">
+            @Html.DisplayNameFor(model => model.SanPham.TenSanPham)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.SanPham.TenSanPham)
+        </dd>
+
+        <dt class="col-sm-3 font-weight-bold text-dark">
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt class="col-sm-3 font-weight-bold text-dark">
+            @Html.DisplayNameFor(model => model.DonGia)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.DonGia)
+        </dd>
+
+    </dl>
+</div>
+<p class="text-center mt-4">
+    @Html.ActionLink("Quay Lại Danh Sách", "Index", null, new { @class = "btn btn-primary" })
+</p>

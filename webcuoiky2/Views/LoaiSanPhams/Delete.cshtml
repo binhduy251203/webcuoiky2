@@ -1,0 +1,121 @@
+﻿@model webcuoiky2.Models.LoaiSanPham
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<style>
+    h2 {
+    font-weight: bold;
+    color: #dc3545;
+    text-shadow: 1px 1px 3px rgba(220, 53, 69, 0.2);
+    letter-spacing: 1px;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dl-horizontal dt {
+    font-weight: bold;
+    color: #6c757d;
+}
+
+.dl-horizontal dd {
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
+.btn {
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: scale(1.05);
+}
+
+.text-muted {
+    color: #6c757d;
+    font-weight: bold;
+}
+
+
+
+</style>
+@*<h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>LoaiSanPham</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TenLoai)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenLoai)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>*@
+<h2 class="text-center text-danger mt-4">Xóa Loại Sản Phẩm</h2>
+
+<div class="container mt-4">
+    <h3 class="text-warning">Bạn có chắc chắn muốn xóa không?</h3>
+    <h4 class="text-secondary">Thông Tin Loại Sản Phẩm</h4>
+    <hr class="mb-4">
+    <dl class="dl-horizontal">
+        <dt class="text-muted">
+            @Html.DisplayNameFor(model => model.TenLoai)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TenLoai)
+        </dd>
+    </dl>
+</div>
+
+<div class="text-center mt-3">
+    @using (Html.BeginForm("Delete", "LoaiSanPhams", new { id = Model.MaLoai }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger me-2" /> |
+            @Html.ActionLink("Quay Lại Danh Sách", "Index", new { @class = "btn btn-secondary" })
+        </div>
+    }
+</div>
+

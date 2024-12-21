@@ -1,0 +1,197 @@
+﻿@model webcuoiky2.Models.SanPham
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Roboto', Arial, sans-serif;
+    }
+
+    h2.text-center {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #007bff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .card {
+        border-radius: 8px;
+        background-color: #ffffff;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h4.mb-3 {
+        font-weight: bold;
+        color: #6c757d;
+        border-bottom: 2px solid #e9ecef;
+        padding-bottom: 10px;
+    }
+
+    dl.row dt {
+        font-weight: bold;
+        color: #495057;
+    }
+
+    dl.row dd {
+        color: #6c757d;
+    }
+
+    .img-thumbnail {
+        border: 2px solid #dee2e6;
+        border-radius: 8px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border: none;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+</style>
+@*<h2>Details</h2>
+
+    <div>
+        <h4>SanPham</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Hang.TenHang)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Hang.TenHang)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LoaiSanPham.TenLoai)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LoaiSanPham.TenLoai)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NhaCungCap.TenNhaCungCap)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NhaCungCap.TenNhaCungCap)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TenSanPham)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenSanPham)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Gia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Gia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NgaySanXuat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NgaySanXuat)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MoTa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MoTa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AnhMinhHoa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AnhMinhHoa)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MaSanPham }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">Chi Tiết Sản Phẩm</h2>
+
+    <div class="card shadow-sm p-4">
+        <h4 class="mb-3 text-secondary">Thông Tin Chi Tiết</h4>
+        <dl class="row">
+            <dt class="col-sm-4">Hãng</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Hang.TenHang)</dd>
+
+            <dt class="col-sm-4">Loại Sản Phẩm</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.LoaiSanPham.TenLoai)</dd>
+
+            <dt class="col-sm-4">Nhà Cung Cấp</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.NhaCungCap.TenNhaCungCap)</dd>
+
+            <dt class="col-sm-4">Tên Sản Phẩm</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.TenSanPham)</dd>
+
+            <dt class="col-sm-4">Giá</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Gia)</dd>
+
+            <dt class="col-sm-4">Ngày Sản Xuất</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.NgaySanXuat)</dd>
+
+            <dt class="col-sm-4">Mô Tả</dt>
+            <dd class="col-sm-8">
+                @*@Html.DisplayFor(model => model.MoTa)*@
+                <textarea id="MoTaEditor" name="NoiDung" rows="4" readonly>@Model.MoTa</textarea>
+            </dd>
+
+            <dt class="col-sm-4">Ảnh Minh Họa</dt>
+            <dd class="col-sm-8">
+                <img src="@Url.Content("~/Images/" + Model.AnhMinhHoa)" class="img-thumbnail" alt="Ảnh Minh Họa" width="150" />
+            </dd>
+        </dl>
+    </div>
+
+    <div class="text-center mt-4">
+        @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = Model.MaSanPham }, new { @class = "btn btn-primary me-2" })
+        @Html.ActionLink("Quay Lại Danh Sách", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+</div>
+@section CodeJS {
+    <script>
+            CKEDITOR.replace("MoTaEditor", {
+                allowedContent: true,
+            });
+    </script>
+}

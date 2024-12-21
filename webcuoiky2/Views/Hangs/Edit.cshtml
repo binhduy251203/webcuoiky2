@@ -1,0 +1,172 @@
+﻿@model webcuoiky2.Models.Hang
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #fce4ec);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Form container */
+.form-horizontal {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 40px auto;
+    max-width: 600px;
+    border: 2px solid #d1c4e9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề form */
+.form-horizontal h4 {
+    font-size: 24px;
+    color: #4a148c;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Đường phân cách */
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, #8e44ad, #4caf50);
+    margin: 20px 0;
+}
+
+/* Label */
+.control-label {
+    font-weight: bold;
+    color: #6a1b9a;
+}
+
+/* Input fields */
+.form-control {
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #8e44ad;
+    box-shadow: 0 0 5px rgba(142, 68, 173, 0.5);
+    outline: none;
+}
+
+/* Validation message */
+.text-danger {
+    color: #e74c3c;
+    font-size: 13px;
+}
+
+/* Submit button */
+.btn-default {
+    background: linear-gradient(90deg, #56ab2f, #a8e063);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-default:hover {
+    background: linear-gradient(90deg, #56ab2f, #8bc34a);
+    transform: translateY(-2px);
+}
+
+/* Back to List link */
+div > a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #4a148c;
+    transition: color 0.3s ease;
+}
+
+div > a:hover {
+    color: #6a1b9a;
+    text-decoration: underline;
+}
+
+/* Form group spacing */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Offset alignment */
+.col-md-offset-2 {
+    margin-left: 16.66667%;
+}
+
+/* Responsive design */
+@*@media (max-width: 768px) {
+    .form-horizontal {
+        padding: 15px;
+        margin: 20px;
+    }
+
+    .control-label {
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    .col-md-offset-2 {
+        margin-left: 0;
+    }
+}*@
+h2{
+    text-align:center;
+}
+</style>
+<h2>Sửa Thông Tin Hãng</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Hãng Sản Xuất</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaHang)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenHang, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenHang, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenHang, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaNhaCungCap, "MaNhaCungCap", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MaNhaCungCap", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaNhaCungCap, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Quay Lại Danh Sách", "Index")
+</div>

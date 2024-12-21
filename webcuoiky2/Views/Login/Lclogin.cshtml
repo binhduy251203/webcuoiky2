@@ -1,0 +1,81 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Choice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('../../images/bglogin.jpg') no-repeat center center fixed;
+/*            background-image: url('../../images/bglogin.jpg');*/
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .choice-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px 50px;
+            border-radius: 15px;
+            width: 400px;
+            text-align: center;
+            color: white;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
+        }
+
+            .choice-container h2 {
+                margin-bottom: 30px;
+                font-size: 26px;
+                font-weight: bold;
+            }
+
+            .choice-container button {
+                width: 100%;
+                padding: 15px;
+                margin: 15px 0;
+                border: none;
+                background: linear-gradient(90deg, #4CAF50, #2E7D32);
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+                border-radius: 30px;
+                cursor: pointer;
+                transition: transform 0.2s, box-shadow 0.2s;
+            }
+
+                .choice-container button:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+                }
+
+            .choice-container .back-home {
+                background: linear-gradient(90deg, #f44336, #d32f2f);
+            }
+
+                .choice-container .back-home:hover {
+                    box-shadow: 0px 4px 8px rgba(255, 0, 0, 0.5);
+                }
+    </style>
+</head>
+<body>
+    <div class="choice-container">
+        <h2>Lựa Chọn Đăng Nhập</h2>
+        <button onclick="location.href='/Login/Index'">Quản Trị</button>
+        <button onclick="location.href='/Login/LoginKh'">Khách Hàng</button>
+        <button class="back-home" onclick="location.href='/Test/Index'">Quay Về Trang Chủ</button>
+    </div>
+</body>
+</html>

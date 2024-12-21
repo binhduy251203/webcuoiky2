@@ -1,0 +1,154 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('../../images/bglogin.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px 30px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+            color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+            .register-container h2 {
+                margin-bottom: 20px;
+                font-size: 24px;
+            }
+
+            .register-container .input-group {
+                position: relative;
+                margin-bottom: 20px;
+            }
+
+                .register-container .input-group input {
+                    width: 80%;
+                    padding: 10px 40px;
+                    border: 1px solid #4CAF50;
+                    border-radius: 5px;
+                    background: transparent;
+                    color: white;
+                }
+
+                    .register-container .input-group input:focus {
+                        outline: none;
+                        border-color: #76c38f;
+                    }
+
+                .register-container .input-group i {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    color: #4CAF50;
+                }
+
+            .register-container button {
+                width: 100%;
+                padding: 10px;
+                border: none;
+                background: #4CAF50;
+                color: white;
+                font-size: 16px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+
+                .register-container button:hover {
+                    background: #45a049;
+                }
+
+            .register-container .login {
+                margin-top: 20px;
+                font-size: 14px;
+            }
+
+                .register-container .login a {
+                    color: #76c38f;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+
+                    .register-container .login a:hover {
+                        text-decoration: underline;
+                    }
+
+
+    </style>
+</head>
+<body>
+    
+    @using (Html.BeginForm("SingUp", "Login", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="register-container">
+            <h2>Đăng Ký Tài Khoản</h2>
+            <div class="input-group">
+                <i class="fa fa-user"></i>
+                <input type="text" name="TenKhach" placeholder="Tên Khách" required>
+            </div>
+            <div class="input-group">
+                <i class="fa fa-map-marker-alt"></i>
+                <input type="text" name="DiaChi" placeholder="Địa Chỉ" required>
+            </div>
+            <div class="input-group">
+                <i class="fa fa-phone"></i>
+                <input type="text" name="SoDienThoai" placeholder="Số Điện Thoại" required>
+            </div>
+            <div class="input-group">
+                <i class="fa fa-user-circle"></i>
+                <input type="text" name="TenDangNhap" placeholder="Tên Đăng Nhập" required>
+            </div>
+            <div class="input-group">
+                <i class="fa fa-lock"></i>
+                <input type="password" name="MatKhau" placeholder="Mật Khẩu" autocomplete="new-password" required>
+            </div>
+            <div class="input-group">
+                <i class="fa fa-calendar"></i>
+                <input type="date" name="NgaySinh" required>
+            </div>
+            <div class="input-group">
+                <i class="fa fa-venus-mars"></i>
+                <div style="display: flex; justify-content: space-around; align-items: center; width: 80%; margin: 0 auto;">
+                    <label style="color: white;">
+                        <input type="radio" name="GioiTinh" value="Nam" required style="margin-right: 5px;"> Nam
+                    </label>
+                    <label style="color: white;">
+                        <input type="radio" name="GioiTinh" value="Nu" required style="margin-right: 5px;"> Nữ
+                    </label>
+                </div>
+            </div>
+            <div class="input-group">
+                <i class="fa fa-envelope"></i>
+                <input type="email" name="Email" placeholder="Email" autocomplete="off" required>
+            </div>
+            <button type="submit">Đăng Ký</button>
+            <div class="login">
+                Đã có tài khoản? → <a href="/Login/LoginKh">Đăng Nhập</a>
+            </div>
+        </div>
+    }
+</body>
+</html>

@@ -1,0 +1,114 @@
+﻿@model List<webcuoiky2.Models.SanPham>
+@{
+    Layout = "~/Views/Shared/_LayoutCart.cshtml";
+    decimal subtotal = Model != null ? Model.Sum(item => item.Gia) : 0;
+}
+@*<h2>Giỏ Hàng</h2>
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Giá</th>
+                    <th>Hình Ảnh</th>
+                    <th>Xóa</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.TenSanPham</td>
+                        <td>@String.Format("{0:0,0} VND", item.Gia)</td>
+                        <td>
+                            <img src="~/Images/@item.AnhMinhHoa" style="height: 50px; width: 50px; object-fit: cover;" />
+                        </td>
+                        <td>
+                            <a href="@Url.Action("RemoveFromCart", "Cart", new { id = item.MaSanPham })" class="btn btn-danger">
+                                 <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Giỏ hàng của bạn đang trống!</p>
+    }*@
+<h2>Giỏ Hàng</h2>
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Tên Sản Phẩm</th>
+                <th>Giá</th>
+                <th>Hình Ảnh</th>
+                <th>Xóa</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.TenSanPham</td>
+                    <td>@String.Format("{0:0,0} VND", item.Gia)</td>
+                    <td>
+                        <img src="~/Images/@item.AnhMinhHoa" style="height: 50px; width: 50px; object-fit: cover;" />
+                    </td>
+                    <td>
+                        <a href="@Url.Action("RemoveFromCart", "Cart", new { id = item.MaSanPham })" class="btn btn-danger">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Thêm phần hiển thị Cart Totals -->
+    <div class="col-md-6 pl-5">
+        <div class="row justify-content-end">
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-12 text-right border-bottom mb-5">
+                        <h3 class="text-black h4 text-uppercase">Thành Tiền</h3>
+                    </div>
+                </div>
+                @*<div class="row mb-3">
+                    <div class="col-md-6">
+                        <span class="text-black">Subtotal</span>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <strong class="text-black">@String.Format("{0:0,0} VND", subtotal)</strong>
+                    </div>
+                </div>*@
+                <div class="row mb-5">
+                    <div class="col-md-6">
+                        <span class="text-black">Tổng Tiền</span>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <strong class="text-black">@String.Format("{0:0,0} VND", subtotal)</strong>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        @*<button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='@Url.Action("Checkout", "Cart")'">Thanh Toán</button>*@
+                        <button class="btn btn-black btn-lg py-3 btn-block"
+                                onclick="window.location='@Url.Action("Checkout", "Cart")'">
+                            Thanh Toán
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <p>Giỏ hàng của bạn đang trống!</p>
+}

@@ -1,0 +1,128 @@
+﻿@model IEnumerable<webcuoiky2.Models.SanPham>
+@using System.Globalization
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+<style>
+    
+</style>
+
+@*<div class="row">
+        @foreach (var sanPham in Model)
+        {
+            <div class="col-md-3">
+                <div class="card" style="margin-bottom: 20px; border: 1px solid #ddd; padding: 10px;">
+                    @{
+                        string ImagePath = "~/Images/" + sanPham.AnhMinhHoa;
+                    }
+                    <img src="@Url.Content(ImagePath)" class="card-img-top img-fluid" alt="Hình sản phẩm" style="height: 200px; object-fit: cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@sanPham.TenSanPham</h5>
+
+                        <p class="card-text"><strong>Giá:</strong> @String.Format(new CultureInfo("vi-VN"), "{0:C0}", sanPham.Gia)</p>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>*@
+@*<div class="col">
+        <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+            @foreach (var item in Model)
+            {
+                <div class="product-item">
+                    <div class="product product_filter">
+                        <div class="product_image">
+                            @{
+                                string ImagePath = "~/Images/" + item.AnhMinhHoa;
+                            }
+                            <img src="@Url.Content(ImagePath)" class="card-img-top img-fluid" alt="Hình sản phẩm" style="height: 200px; object-fit: cover;" />
+                        </div>
+                        @if (item.Gia < 500000) // Thêm logic bubble tùy ý
+                        {
+                            <div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>sale</span></div>
+                        }
+                        <div class="product_info">
+                            <h6 class="product_name">
+                                <a href="/SanPhams/Details/@item.MaSanPham">@item.TenSanPham</a>
+                            </h6>
+                            <div class="product_price">@String.Format("{0:0,0} VND", item.Gia)</div>
+                        </div>
+                    </div>
+                    <div class="red_button add_to_cart_button">
+                        <a href="#">add to cart</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>*@
+<div class="col">
+    <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+        @foreach (var item in Model)
+        {
+            var categoryClass = "";
+            switch (item.MaLoai)
+            {
+                case 3:
+                    categoryClass = "pkhach";
+                    break;
+                case 5:
+                    categoryClass = "pngu";
+                    break;
+                case 4:
+                    categoryClass = "pbep";
+                    break;
+                case 6:
+                    categoryClass = "ptam";
+                    break;
+                case 7:
+                    categoryClass = "plm";
+                    break;
+                default:
+                    categoryClass = "";
+                    break;
+            }
+            <div class="product-item @categoryClass">
+                <div class="product product_filter">
+                    <div class="product_image">
+                        @{
+                            string ImagePath = "~/Images/" + item.AnhMinhHoa;
+                        }
+                        <a href="@Url.Action("Details", "Test", new { id = item.MaSanPham })"><img src="@Url.Content(ImagePath)" class="card-img-top img-fluid" alt="Hình sản phẩm" style="height: 200px; object-fit: cover;" /></a>
+                    </div>
+                    @if (item.Gia < 500000)
+                    {
+                        <div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>sale</span></div>
+                    }
+                <div class="product_info">
+                    <h6 class="product_name">
+                        <a href="@Url.Action("Details", "Test", new { id = item.MaSanPham })">@item.TenSanPham</a>
+                        @*/SanPhams/Details/@item.MaSanPham*@
+                    </h6>
+                    <div class="product_price">@String.Format("{0:0,0} VND", item.Gia)</div>
+                </div>
+                </div>
+                <div class="red_button add_to_cart_button">
+                    <a href="@Url.Action("AddToCart", "Cart", new { id = item.MaSanPham })">Thêm Vào Giỏ Hàng</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var $grid = $('.product-grid').isotope({
+            itemSelector: '.product-item',
+            layoutMode: 'fitRows'
+        });
+
+        $('.arrivals_grid_sorting .grid_sorting_button').on('click', function () {
+            var filterValue = $(this).attr('data-filter');
+            $grid.isotope({ filter: filterValue });
+            $('.arrivals_grid_sorting .grid_sorting_button').removeClass('active');
+            $(this).addClass('active');
+        });
+    });
+</script>

@@ -1,0 +1,222 @@
+﻿@model IEnumerable<webcuoiky2.Models.SanPham>
+@using System.Text.RegularExpressions
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<style>
+    body {
+        font-family: 'Roboto', Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+    }
+
+    h2 {
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .table {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 1rem;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+        .table thead {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+        }
+
+        .table tbody tr:hover {
+            background-color: #e9ecef;
+            transition: background-color 0.3s ease;
+        }
+
+        .table td img {
+            border-radius: 5px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+            .table td img:hover {
+                transform: scale(1.1);
+            }
+
+    /* Nút hành động */
+    .btn {
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        font-weight: bold;
+        border-radius: 4px;
+    }
+
+    .btn-sm {
+        padding: 0.4rem 0.75rem;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .btn:hover {
+        opacity: 0.85;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .tk {
+        float: right;
+        border-radius: 2%;
+    }
+
+    .mo-ta {
+        max-height: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+        .mo-ta.mo-rong {
+            max-height: none;
+            white-space: normal;
+        }
+
+    /*    .btn-xem-them {
+        color: #007bff;
+        text-decoration: underline;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+    }
+
+        .btn-xem-them:hover {
+            opacity: 0.8;
+        }*/
+    .mo-ta {
+        width: 95px;
+    }
+</style>
+
+
+<div class="container mt-4">
+    <h2 class="text-center text-primary">Danh Sách Sản Phẩm</h2>
+
+    <p class="text-end">
+        <div>
+            @Html.ActionLink("Tạo Mới", "Create", null, new { @class = "btn btn-success" })
+            <input type="text" id="searchBox" class="tk" placeholder="Tìm kiếm..." style="max-width: 300px;">
+        </div>
+    </p>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Hang.TenHang)</th>
+                <th>@Html.DisplayNameFor(model => model.LoaiSanPham.TenLoai)</th>
+                <th>@Html.DisplayNameFor(model => model.NhaCungCap.TenNhaCungCap)</th>
+                <th>@Html.DisplayNameFor(model => model.TenSanPham)</th>
+                <th>@Html.DisplayNameFor(model => model.Gia)</th>
+                <th>@Html.DisplayNameFor(model => model.NgaySanXuat)</th>
+                <th>@Html.DisplayNameFor(model => model.MoTa)</th>
+                <th>@Html.DisplayNameFor(model => model.AnhMinhHoa)</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Hang.TenHang)</td>
+                    <td>@Html.DisplayFor(modelItem => item.LoaiSanPham.TenLoai)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NhaCungCap.TenNhaCungCap)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TenSanPham)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Gia)</td>
+                    @*<td>@Html.DisplayFor(modelItem => item.NgaySanXuat)</td>*@
+                    <td>
+                        @item.NgaySanXuat.ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.MoTa)*@
+                        <div class="mo-ta" id="moTa-@item.MaSanPham">
+                            @*@Html.DisplayFor(modelItem => item.MoTa)*@
+                            @Html.Raw(HttpUtility.HtmlDecode(StripHtmlTags(item.MoTa)))
+                        </div>
+                        <button class="btn-xem-them" data-id="@item.MaSanPham" onclick="toggleMoTa(this)">
+                            Xem thêm
+                        </button>
+
+                    </td>
+                    <td>
+                        @{
+                            string ImagePath = "~/Images/" + item.AnhMinhHoa;
+                        }
+                        <img src="@Url.Content(ImagePath)" width="100" class="img-thumbnail" />
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.MaSanPham }, new { @class = "btn btn-sm btn-primary" }) |
+                        @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaSanPham }, new { @class = "btn btn-sm btn-info" }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.MaSanPham }, new { @class = "btn btn-sm btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    document.getElementById("searchBox").addEventListener("input", function () {
+        const searchValue = this.value.toLowerCase();
+        const rows = document.querySelectorAll(".table tbody tr"); // Lấy tất cả các hàng trong tbody
+
+        rows.forEach(row => {
+            // Lấy toàn bộ nội dung text của hàng
+            const rowText = row.textContent.toLowerCase();
+
+            // Kiểm tra nếu từ khóa xuất hiện trong nội dung hàng
+            const match = rowText.includes(searchValue);
+            row.style.display = match ? "" : "none"; // Hiển thị hoặc ẩn hàng
+        });
+    });
+</script>
+<script>
+    function toggleMoTa(button) {
+
+        const moTaId = "moTa-" + button.dataset.id;
+        const moTaDiv = document.getElementById(moTaId);
+
+
+        const isExpanded = moTaDiv.classList.contains("mo-rong");
+
+
+        if (isExpanded) {
+            moTaDiv.classList.remove("mo-rong");
+            button.textContent = "Xem thêm";
+        } else {
+            moTaDiv.classList.add("mo-rong");
+            button.textContent = "Thu gọn";
+        }
+    }
+</script>
+@functions {
+    public static string StripHtmlTags(string input)
+    {
+        return Regex.Replace(input, "<.*?>", String.Empty);
+    }
+}

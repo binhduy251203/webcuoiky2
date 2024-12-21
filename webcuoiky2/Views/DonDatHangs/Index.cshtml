@@ -1,0 +1,197 @@
+﻿@model IEnumerable<webcuoiky2.Models.DonDatHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Roboto', Arial, sans-serif;
+    }
+
+    h2.text-center {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #0d6efd;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .table {
+        border-collapse: collapse;
+    }
+
+        .table th, .table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+    .table-bordered th, .table-bordered td {
+        border: 1px solid #dee2e6;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f3f5;
+    }
+
+    .table-primary {
+        background-color: #cfe2ff;
+        color: #084298;
+    }
+
+    .btn {
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 6px 12px;
+    }
+
+    .btn-success:hover {
+        background-color: #198754;
+        border-color: #146c43;
+    }
+
+    .btn-warning:hover {
+        background-color: #ffc107;
+        border-color: #d39e00;
+    }
+
+    .btn-info:hover {
+        background-color: #0dcaf0;
+        border-color: #0aa2c2;
+    }
+
+    .btn-danger:hover {
+        background-color: #dc3545;
+        border-color: #b02a37;
+    }
+    .container{
+        max-width:100%;
+    }
+</style>
+@*<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KhachHang.TenKhach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayDatHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TriGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayGiao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenNguoiNhan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaChiNhan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoDienThoaiNhan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhThucThanhToan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhThucGiaoHang)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KhachHang.TenKhach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDatHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TriGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayGiao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNguoiNhan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChiNhan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoDienThoaiNhan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HinhThucThanhToan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HinhThucGiaoHang)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SoDonHang }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SoDonHang }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SoDonHang })
+        </td>
+    </tr>
+}
+
+</table>*@
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">Danh Sách Đơn Hàng</h2>
+
+    <p class="text-end">
+        @Html.ActionLink("Tạo Mới", "Create", null, new { @class = "btn btn-success px-4" })
+    </p>
+
+    <table class="table table-bordered table-hover table-striped shadow-sm">
+        <thead class="table-primary text-center">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.KhachHang.TenKhach)</th>
+                <th>@Html.DisplayNameFor(model => model.NgayDatHang)</th>
+                <th>@Html.DisplayNameFor(model => model.TriGia)</th>
+                <th>@Html.DisplayNameFor(model => model.NgayGiao)</th>
+                <th>@Html.DisplayNameFor(model => model.TenNguoiNhan)</th>
+                <th>@Html.DisplayNameFor(model => model.DiaChiNhan)</th>
+                <th>@Html.DisplayNameFor(model => model.SoDienThoaiNhan)</th>
+                <th>@Html.DisplayNameFor(model => model.HinhThucThanhToan)</th>
+                <th>@Html.DisplayNameFor(model => model.HinhThucGiaoHang)</th>
+                <th>Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.KhachHang.TenKhach)</td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.NgayDatHang)*@
+                        @item.NgayDatHang.ToString("dd/MM/yyyy")
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.TriGia)</td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.NgayGiao)*@
+                        @item.NgayGiao.ToString("dd/MM/yyyy")
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.TenNguoiNhan)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DiaChiNhan)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SoDienThoaiNhan)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HinhThucThanhToan)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HinhThucGiaoHang)</td>
+                    <td class="text-center">
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.SoDonHang }, new { @class = "btn btn-sm btn-warning mx-1" })
+                        @Html.ActionLink("Chi Tiết", "Details", new { id = item.SoDonHang }, new { @class = "btn btn-sm btn-info mx-1" })
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.SoDonHang }, new { @class = "btn btn-sm btn-danger mx-1" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
